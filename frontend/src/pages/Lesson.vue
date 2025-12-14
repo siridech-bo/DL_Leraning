@@ -33,7 +33,6 @@ import MarkdownIt from 'markdown-it'
 import CopyCard from '../components/CopyCard.vue'
 import AcceptanceChecks from '../components/AcceptanceChecks.vue'
 import { lesson1Prompts } from '../content/lesson1'
-import rawMd1 from '../content/lesson-1.md?raw'
 import SlideDeck from '../components/SlideDeck.vue'
 import { lesson1Slides } from '../content/lesson1_slides'
 import ResourceList from '../components/ResourceList.vue'
@@ -62,38 +61,34 @@ const lessonTitles: Record<number, string> = {
   8: 'Ethics & Practice',
   9: 'Project Wrap‑up'
 }
-const html = ref(md.render(rawMd1))
+const html = ref('')
 const prompts = ref(lesson1Prompts)
 const slides = ref(lesson1Slides)
 const resources = ref(lessonResources[1] || [])
 const pack = ref(lessonDownloadPacks[1])
+const mdModules = import.meta.glob('../content/lesson-*.md', { as: 'raw' })
+const slideModules = import.meta.glob('../content/lesson*_slides.ts')
+const promptModules = import.meta.glob('../content/lesson*.ts')
 const loadLesson = async (id: number) => {
-  if (id === 1) {
-    html.value = md.render(rawMd1)
-    const { lesson1Prompts } = await import('../content/lesson1')
-    const { lesson1Slides } = await import('../content/lesson1_slides')
-    prompts.value = lesson1Prompts
-    slides.value = lesson1Slides
-    resources.value = lessonResources[1] || []
-    pack.value = lessonDownloadPacks[1]
-    return
-  }
-  try {
-    const rawMd = await import(`../content/lesson-${id}.md?raw`)
-    html.value = md.render(rawMd.default)
-  } catch {
+  const mdPath = `../content/lesson-${id}.md`
+  if (mdModules[mdPath]) {
+    const raw = await mdModules[mdPath]()
+    html.value = md.render(String(raw))
+  } else {
     html.value = md.render(`# Lesson ${id}\n\nContent coming soon.`)
   }
-  try {
-    const mod = await import(`../content/lesson${id}_slides`)
-    slides.value = mod[`lesson${id}Slides`]
-  } catch {
+  const slidePath = `../content/lesson${id}_slides.ts`
+  if (slideModules[slidePath]) {
+    const mod: any = await slideModules[slidePath]()
+    slides.value = mod[`lesson${id}Slides`] || mod.default || []
+  } else {
     slides.value = []
   }
-  try {
-    const mod = await import(`../content/lesson${id}`)
-    prompts.value = mod[`lesson${id}Prompts`]
-  } catch {
+  const promptPath = `../content/lesson${id}.ts`
+  if (promptModules[promptPath]) {
+    const mod: any = await promptModules[promptPath]()
+    prompts.value = mod[`lesson${id}Prompts`] || mod.default || []
+  } else {
     prompts.value = []
   }
   resources.value = lessonResources[id] || []
