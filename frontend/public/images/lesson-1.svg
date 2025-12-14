@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#111827"/>
+      <stop offset="1" stop-color="#1f2937"/>
+    </linearGradient>
+    <linearGradient id="gl" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#60a5fa"/>
+      <stop offset="1" stop-color="#34d399"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="1200" height="360" fill="url(#g)"/>
+  <g transform="translate(80,60)">
+    <rect x="0" y="0" rx="24" ry="24" width="1040" height="240" fill="#0b1220" opacity="0.6"/>
+    <rect x="0" y="0" rx="24" ry="24" width="1040" height="240" fill="none" stroke="#1f2937"/>
+    <text x="520" y="52" fill="#e5e7eb" font-size="28" font-weight="600" text-anchor="middle">Lesson 1 • Image Classification</text>
+    <g transform="translate(120,100)">
+      <circle cx="0" cy="0" r="56" fill="#111827" stroke="#374151"/>
+      <path d="M -30 10 C -22 20, -10 25, 0 25 C 10 25, 22 20, 30 10 C 24 8, 18 4, 14 -2 C 10 -8, 8 -16, 6 -24 C -6 -24, -8 -16, -12 -8 C -16 -2, -24 6, -30 10 Z" fill="#60a5fa"/>
+      <text x="90" y="8" fill="#e5e7eb" font-size="18" font-weight="500">Cat</text>
+    </g>
+    <g transform="translate(520,100)">
+      <circle cx="0" cy="0" r="56" fill="#111827" stroke="#374151"/>
+      <path d="M -30 8 C -24 20, -10 26, 0 26 C 12 26, 24 20, 30 8 C 24 6, 18 0, 14 -6 C 12 -12, 8 -18, 4 -24 C -4 -24, -8 -18, -12 -12 C -16 -6, -24 2, -30 8 Z" fill="#34d399"/>
+      <text x="90" y="8" fill="#e5e7eb" font-size="18" font-weight="500">Dog</text>
+    </g>
+    <g transform="translate(820,100)">
+      <rect x="-56" y="-56" width="112" height="112" rx="16" fill="#111827" stroke="#374151"/>
+      <circle cx="0" cy="0" r="28" fill="none" stroke="url(#gl)" stroke-width="8"/>
+      <path d="M -24 28 L 24 28" stroke="#4b5563" stroke-width="4"/>
+      <text x="80" y="8" fill="#e5e7eb" font-size="18" font-weight="500">Predict</text>
+    </g>
+    <g transform="translate(520,190)">
+      <rect x="-160" y="0" width="320" height="12" rx="6" fill="#111827" stroke="#374151"/>
+      <rect x="-160" y="0" width="200" height="12" rx="6" fill="url(#gl)"/>
+      <text x="0" y="34" fill="#9ca3af" font-size="14" text-anchor="middle">Confidence • 0.86</text>
+    </g>
+  </g>
+</svg>

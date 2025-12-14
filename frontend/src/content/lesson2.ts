@@ -1,0 +1,31 @@
+export const lesson2Prompts = [
+  {
+    title: "Dataset Setup",
+    text:
+      "Prepare 3–5 sample images for testing:\n" +
+      "- Place JPEG/PNG files under `samples/`\n" +
+      "- Include at least one cat and one dog"
+  },
+  {
+    title: "Inference API",
+    text:
+      "Create a FastAPI app that:\n" +
+      "- Loads `models/model.pkl` at startup\n" +
+      "- Exposes `GET /health` and `POST /predict` for images\n" +
+      "- Returns `{label, confidence, latency_ms}` and enables CORS"
+  },
+  {
+    title: "Client Test",
+    text:
+      "Write a small Python client script that:\n" +
+      "- Sends a local JPEG to `/predict`\n" +
+      "- Prints the JSON response and latency"
+  },
+  {
+    title: "Error Handling",
+    text:
+      "Add minimal error handling:\n" +
+      "- Validate file type\n" +
+      "- Return 4xx with a message for invalid inputs"
+  }
+]
