@@ -1,0 +1,1 @@
+const e=[{title:"Tabular Modeling",bullets:["Categorical embeddings and continuous normalization","Validation split strategy","Task‑appropriate metrics"]},{title:"Interpretation",bullets:["Feature importance","Simple partial dependence","Discuss data issues"]}];export{e as lesson5Slides};

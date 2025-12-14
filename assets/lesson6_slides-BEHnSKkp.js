@@ -1,0 +1,1 @@
+const e=[{title:"Collaborative Filtering",bullets:["User and item embeddings","Interaction dataloaders","Evaluate with RMSE or ranking metrics"]},{title:"Practical Issues",bullets:["Cold‑start users/items","Regularization and embedding size","Sample recommendation inspection"]}];export{e as lesson6Slides};

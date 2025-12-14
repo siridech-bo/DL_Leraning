@@ -1,0 +1,5 @@
+label,sex,age,fare,class
+survived,female,22,7.25,3rd
+died,male,35,8.05,3rd
+survived,female,38,71.28,1st
+died,male,28,13.00,3rd

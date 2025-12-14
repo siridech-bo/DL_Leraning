@@ -1,0 +1,1 @@
+const e=[{title:"Project Wrap‑up",bullets:["Package UI and API into a demo","Summarize metrics and findings","Plan concrete next steps"]},{title:"Reproducibility & Presentation",bullets:["Seeds, logs, and artifact versions","Error analysis with examples","Concise storytelling"]}];export{e as lesson9Slides};

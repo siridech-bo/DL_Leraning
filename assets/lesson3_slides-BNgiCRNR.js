@@ -1,0 +1,1 @@
+const t=[{title:"Data & Augmentation",bullets:["Choose robust train/valid splits","Apply augmentations to improve generalization","Inspect transformed samples"]},{title:"Over/Underfitting",bullets:["Watch loss and validation metrics","Tune augmentation strength","Adjust learning rate schedules"]}];export{t as lesson3Slides};
