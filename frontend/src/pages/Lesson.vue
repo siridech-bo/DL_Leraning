@@ -11,7 +11,7 @@
         </button>
       </div>
     </div>
-    <img :src="bannerError ? '/images/placeholder.svg' : imgSrc" :alt="`Lesson ${lessonId} banner`" @error="onBannerError" class="w-full rounded-xl border border-neutral-200 dark:border-neutral-800 mb-6" />
+    <img :src="bannerError ? base + 'images/placeholder.svg' : imgSrc" :alt="`Lesson ${lessonId} banner`" @error="onBannerError" class="w-full rounded-xl border border-neutral-200 dark:border-neutral-800 mb-6" />
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
       <div class="space-y-4">
         <SlideDeck :slides="slides">
@@ -45,7 +45,8 @@ const route = useRoute()
 const router = useRouter()
 const lessonId = ref<number>(1)
 const title = computed(() => `Lesson ${lessonId.value}: ${lessonTitles[lessonId.value]}`)
-const bannerSrc = computed(() => `/images/lesson-${lessonId.value}.svg`)
+const base = import.meta.env.BASE_URL
+const bannerSrc = computed(() => base + `images/lesson-${lessonId.value}.svg`)
 const bannerPngSrc = ref<string | null>(null)
 const preferPng = new Set([3, 8, 9])
 const imgSrc = computed(() => (preferPng.has(lessonId.value) && bannerPngSrc.value ? bannerPngSrc.value : bannerSrc.value))

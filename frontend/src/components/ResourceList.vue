@@ -30,7 +30,9 @@ const downloadPack = async () => {
   if (!props.pack) return
   const zip = new JSZip()
   for (const f of props.pack.files) {
-    const res = await fetch(f.path)
+    const base = import.meta.env.BASE_URL
+    const url = base + f.path.replace(/^\//, '')
+    const res = await fetch(url)
     const blob = await res.blob()
     zip.file(f.name, blob)
   }
